@@ -5,10 +5,8 @@ import java.util.Arrays;
 public class HeapSort {
 
     public static void main(String[] args) {
-//        int[] num = new int[]{5,7,5,2,6,3,9,8,1};
-        int[] num = new int[]{0,16,7,3,20,17,8};
+        int[] num = new int[] { 0, 16, 7, 3, 20, 17, 8 };
         heapsort(num, 6);
-//        adjustHeap(num, 1, 6);
         System.out.println(Arrays.toString(num));
     }
 
@@ -38,7 +36,6 @@ public class HeapSort {
 
         int i;
         for (i = n / 2; i >= 1; i--) {
-
             adjustHeap(num, i, n);// ³õÊ¼¶Ñ¹ı³Ì
         }
         System.out.println("++++++++++");
