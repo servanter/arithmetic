@@ -3,51 +3,53 @@ package com.zhy.algorithm.sort;
 import java.util.Arrays;
 
 public class MergeSort2 {
-    public static int[] mergeSort(int[] arr) {// 归并排序 --递归
-        if (arr.length == 1) {
-            return arr;
-        }
-        int half = arr.length / 2;
-        int[] arr1 = new int[half];
-        int[] arr2 = new int[arr.length - half];
-        System.arraycopy(arr, 0, arr1, 0, arr1.length);
-        System.arraycopy(arr, half, arr2, 0, arr2.length);
-        arr1 = mergeSort(arr1);
-        arr2 = mergeSort(arr2);
-        return mergeSortSub(arr1, arr2);
+
+    public static void main(String[] args) {
+        int[] num = { 7, 5, 2, 6, 3, 9, 8, 1, 4, 5, 6 };
+        int[] result = mergeSort(num);
+        System.out.println(Arrays.toString(result));
     }
 
-    private static int[] mergeSortSub(int[] arr1, int[] arr2) {// 归并排序子程序
-        int[] result = new int[arr1.length + arr2.length];
-        int i = 0;
-        int j = 0;
-        int k = 0;
+    private static int[] mergeSort(int[] src) {
+        if (src.length == 1) {
+            return src;
+        }
+        int half = src.length / 2;
+        int[] pre = new int[half];
+        int[] post = new int[src.length - half];
+        System.arraycopy(src, 0, pre, 0, pre.length);
+        System.arraycopy(src, half, post, 0, post.length);
+        int left[] = mergeSort(pre);
+        int right[] = mergeSort(post);
+        return merge(left, right);
+    }
+
+    private static int[] merge(int[] left, int[] right) {
+        int i = 0, j = 0, k = 0;
+        int result[] = new int[left.length + right.length];
         while (true) {
-            if (arr1[i] < arr2[j]) {
-                result[k] = arr1[i];
-                if (++i > arr1.length - 1) {
+            if (left[i] < right[j]) {
+                result[k] = left[i];
+                i++;
+                if (i > left.length - 1) {
                     break;
                 }
             } else {
-                result[k] = arr2[j];
-                if (++j > arr2.length - 1) {
+                result[k] = right[j];
+                j++;
+                if (j > right.length - 1) {
                     break;
                 }
             }
             k++;
         }
-        for (; i < arr1.length; i++) {
-            result[++k] = arr1[i];
+        for (; i < left.length; i++) {
+            result[++k] = left[i];
         }
-        for (; j < arr2.length; j++) {
-            result[++k] = arr2[j];
+        for (; j < right.length; j++) {
+            result[++k] = right[j];
         }
         return result;
     }
 
-    public static void main(String[] args) {
-        int[] num = { 7, 5, 2, 6, 3, 9, 8, 1 };
-        int[] result =mergeSort(num);
-        System.out.println(Arrays.toString(result));
-    }
 }
