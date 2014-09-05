@@ -36,7 +36,7 @@ public class BinaryTreeSort {
         }
     }
 
-    public void inOrder(BinaryTreeSort root) { // 中根遍历
+    public void inOrder(BinaryTreeSort root) {
         if (root != null) {
             inOrder(root.left);
             System.out.print(root.data + "--");
@@ -44,7 +44,7 @@ public class BinaryTreeSort {
         }
     }
 
-    public void postOrder(BinaryTreeSort root) { // 后根遍历
+    public void postOrder(BinaryTreeSort root) {
         if (root != null) {
             postOrder(root.left);
             postOrder(root.right);
@@ -53,18 +53,13 @@ public class BinaryTreeSort {
     }
 
     public static void main(String[] str) {
-        int[] array = { 7, 5, 2, 6, 3, 9, 8, 1  };
-        BinaryTreeSort root = new BinaryTreeSort(array[0]); // 创建二叉树
+        int[] array = { 7, 5, 2, 6, 3, 9, 8, 1 };
+        BinaryTreeSort root = new BinaryTreeSort(array[0]);
         for (int i = 1; i < array.length; i++) {
-            root.insert(root, array[i]); // 向二叉树中插入数据
+            root.insert(root, array[i]);
         }
-        System.out.println("先根遍历：");
         root.preOrder(root);
-        System.out.println();
-        System.out.println("中根遍历：");
         root.inOrder(root);
-        System.out.println();
-        System.out.println("后根遍历：");
         root.postOrder(root);
     }
 
