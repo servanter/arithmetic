@@ -19,14 +19,14 @@ public class MergeSort2 {
         int[] post = new int[src.length - half];
         System.arraycopy(src, 0, pre, 0, pre.length);
         System.arraycopy(src, half, post, 0, post.length);
-        int left[] = mergeSort(pre);
-        int right[] = mergeSort(post);
+        int[] left = mergeSort(pre);
+        int[] right = mergeSort(post);
         return merge(left, right);
     }
 
     private static int[] merge(int[] left, int[] right) {
         int i = 0, j = 0, k = 0;
-        int result[] = new int[left.length + right.length];
+        int[] result = new int[left.length + right.length];
         while (true) {
             if (left[i] < right[j]) {
                 result[k] = left[i];
@@ -46,6 +46,7 @@ public class MergeSort2 {
         for (; i < left.length; i++) {
             result[++k] = left[i];
         }
+
         for (; j < right.length; j++) {
             result[++k] = right[j];
         }
