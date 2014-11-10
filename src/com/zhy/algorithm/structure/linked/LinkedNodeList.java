@@ -59,7 +59,6 @@ public class LinkedNodeList<E> {
                 i++;
             }
         }
-        
         return null;
     }
 
