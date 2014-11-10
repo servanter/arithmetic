@@ -1,4 +1,4 @@
-package com.zhy.algorithm.structure;
+package com.zhy.algorithm.structure.tree;
 
 public class BinaryTree {
 
@@ -36,7 +36,7 @@ public class BinaryTree {
         }
     }
 
-    public void inOrder(BinaryTree root) { // ÖÐ¸ù±éÀú
+    public void inOrder(BinaryTree root) { // ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½
         if (root != null) {
             inOrder(root.left);
             System.out.print(root.data + "--");
@@ -44,7 +44,7 @@ public class BinaryTree {
         }
     }
 
-    public void postOrder(BinaryTree root) { // ºó¸ù±éÀú
+    public void postOrder(BinaryTree root) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (root != null) {
             postOrder(root.left);
             postOrder(root.right);
@@ -54,17 +54,17 @@ public class BinaryTree {
 
     public static void main(String[] str) {
         int[] array = { 7, 5, 2, 6, 3, 9, 8, 1  };
-        BinaryTree root = new BinaryTree(array[0]); // ´´½¨¶þ²æÊ÷
+        BinaryTree root = new BinaryTree(array[0]); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         for (int i = 1; i < array.length; i++) {
-            root.insert(root, array[i]); // Ïò¶þ²æÊ÷ÖÐ²åÈëÊý¾Ý
+            root.insert(root, array[i]); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         }
-        System.out.println("ÏÈ¸ù±éÀú£º");
+        System.out.println("ï¿½È¸ï¿½ï¿½ï¿½ï¿½");
         root.preOrder(root);
         System.out.println();
-        System.out.println("ÖÐ¸ù±éÀú£º");
+        System.out.println("ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½");
         root.inOrder(root);
         System.out.println();
-        System.out.println("ºó¸ù±éÀú£º");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         root.postOrder(root);
     }
 
