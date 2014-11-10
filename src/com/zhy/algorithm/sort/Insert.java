@@ -6,8 +6,8 @@ public class Insert {
 
     public static void insert(int src[]) {
         for (int i = 1; i < src.length; i++) {
-            int temp = src[i];
             int j = i;
+            int temp = src[i];
             while (src[j - 1] > temp) {
                 src[j] = src[j - 1];
                 j--;
