@@ -1,27 +1,20 @@
 package com.zhy.algorithm.structure.linked;
 
 public class DoubleLinkedList {
-    // 节点类Node
-    private static class Node {
-        Object value;
-        Node prev = this;
-        Node next = this;
-
-        Node(Object v) {
-            value = v;
-        }
-
-        public String toString() {
-            return value.toString();
-        }
-    }
+   
 
     private Node head = new Node(null); // 头节点
     private int size; // 链表大小
 
     // 以下是接口方法
     public boolean addFirst(Object o) {
-        addAfter(new Node(o), head);
+//        addAfter(new Node(o), head);
+        Node newNode = new Node(o);
+        newNode.next = head.next;
+        newNode.prev = head;
+        newNode.prev.next = newNode;
+        newNode.next.prev = newNode;
+        size++;
         return true;
     }
 
