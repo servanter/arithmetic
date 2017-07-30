@@ -1,7 +1,7 @@
 package com.zhy.algorithm.structure.linked;
 
 /**
- * linked every node
+ * linked node
  * 
  * @author zhanghongyan
  * 
