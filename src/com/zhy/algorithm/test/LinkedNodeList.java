@@ -1,3 +1,5 @@
+package com.zhy.algorithm.test;
+
 import com.zhy.algorithm.test.Node;
 
 public class LinkedNodeList {
